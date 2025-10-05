@@ -103,6 +103,7 @@ Instruction Execution and Timing Control: After bootloading, the processor exits
 Together, these phases ensure accurate compilation, automatic program loading, and proper sequential execution of instructions.
 
 Video Tutorials:
+https://youtu.be/-2GEuG5JHSU?si=9D0z_mV9ZEGtKSAn
 
 
 Limitations:
