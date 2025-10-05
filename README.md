@@ -87,7 +87,6 @@ All components integrate into a modular processor architecture connected by a ce
 Compiler:
 import re
 
-# --- 1. OpCode Map ---
 OPCODE_MAP = {
     "LDA": "0001",
     "LDB": "0010",
