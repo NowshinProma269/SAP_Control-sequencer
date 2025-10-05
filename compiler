@@ -1,0 +1,111 @@
+import re
+
+# --- 1. OpCode Map ---
+OPCODE_MAP = {
+    "LDA": "0001",
+    "LDB": "0010",
+    "MUL": "0011",
+    "ADD": "0100",
+    "STA": "0101",
+    "HLT": "1111"
+}
+
+def assemble_and_concatenate_output():
+    """
+    Processes assembly input, converts instructions to Hex, initializes RAM,
+    and prints the ROM and RAM sequences together on one line.
+    """
+
+    print("=" * 80)
+    print("      FINAL ASSEMBLER (CONCATENATED HEX OUTPUT)")
+    print("=" * 80)
+    print("INSTRUCTION FORMAT: OPCODE OPERAND (e.g., LDA 13)")
+    print("DATA FORMAT: D ADDR: VALUE (e.g., D 13: 4)")
+    print("-" * 80)
+
+    # ------------------------------------------------------------------
+    # 1. READ SINGLE LINE INPUT
+    # ------------------------------------------------------------------
+
+    raw_input_string = input("Paste your entire program block here (press Enter once): ").strip()
+
+    if not raw_input_string:
+        print("\n❌ No input received. Exiting.")
+        return
+
+    # ------------------------------------------------------------------
+    # 2. DEFINE REGEX PATTERNS & EXTRACT TOKENS
+    # ------------------------------------------------------------------
+
+    instruction_pattern = r"([A-Z]{3,}\s+\d+)"
+    data_pattern = r"(D\s+\d+\s*:\s*\d+)"
+
+    all_tokens = re.findall(f"{instruction_pattern}|{data_pattern}", raw_input_string, re.IGNORECASE)
+    valid_tokens = [token.strip() for token_tuple in all_tokens for token in token_tuple if token.strip()]
+
+    data_store = {addr: 0x00 for addr in range(16)} # 16 RAM locations
+    bytes_out_rom = [] # ROM sequence
+
+    print("\n--- Processing Instructions and Data ---")
+
+    # ------------------------------------------------------------------
+    # 3. PROCESS TOKENS
+    # ------------------------------------------------------------------
+
+    for token in valid_tokens:
+        token = token.strip()
+
+        # --- Handle Data Definitions (D 13: 4) ---
+        if token.upper().startswith('D '):
+            match = re.match(r"D\s+(\d+)\s*:\s*(\d+)", token, re.IGNORECASE)
+            if match:
+                addr = int(match.group(1))
+                value = int(match.group(2))
+
+                if 0 <= addr <= 15:
+                    data_store[addr] = value
+                    print(f"   [Data] Address {addr:02X} set to 0x{value:02X}")
+            continue
+
+        # --- Handle Instructions (LDA 13) ---
+
+        parts = token.split()
+        if len(parts) < 2: continue
+
+        opcode_str = parts[0].upper()
+
+        try:
+            operand_dec = int(parts[1])
+        except ValueError: continue
+
+        if opcode_str in OPCODE_MAP and 0 <= operand_dec <= 15:
+            opcode_base = OPCODE_MAP[opcode_str]
+            operand_binary = format(operand_dec, '04b')
+            full_binary_code = opcode_base + operand_binary
+            hex_value = f"{int(full_binary_code, 2):02X}"
+            bytes_out_rom.append(hex_value)
+            print(f"✅ Instruction: {token} -> Hex: {hex_value}")
+        elif opcode_str not in OPCODE_MAP:
+             print(f"❌ ERROR: Unrecognized OpCode: {opcode_str}")
+
+    # ------------------------------------------------------------------
+    # 4. CONCATENATED FINAL OUTPUT
+    # ------------------------------------------------------------------
+
+    # ROM Sequence
+    rom_hex_sequence = " ".join(bytes_out_rom)
+
+    # RAM Sequence
+    ram_hex_sequence = " ".join(f"{data_store[addr]:02X}" for addr in range(16))
+
+    # Concatenate the two sequences
+    full_hex_sequence = f"{rom_hex_sequence} {ram_hex_sequence}"
+
+    print("\n" + "="*80)
+    print("COMPLETE CONCATENATED MEMORY IMAGE (ROM followed by RAM):")
+    print("="*80)
+    print(full_hex_sequence)
+    print("="*80)
+
+# Run the assembler
+assemble_and_concatenate_output()
