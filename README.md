@@ -1,4 +1,4 @@
-# SAP_Control-sequencer
+# SAP_Control_sequencer
 Table of contents:
 1.Project overview
 2.Features
