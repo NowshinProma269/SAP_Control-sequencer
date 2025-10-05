@@ -64,8 +64,12 @@ The control unit orchestrates CPU operations by generating timing and control si
 
  State Counter:
 <img width="742" height="451" alt="vlsi6" src="https://github.com/user-attachments/assets/b04cf543-0df3-40c7-a2b2-bfb04295fe6c" />
+
+
  Opcode Decoder:
 <img width="585" height="226" alt="vlsi8" src="https://github.com/user-attachments/assets/4b1b60b6-3d3c-416b-93c0-5c78b4bf617d" />
+
+
 Control Logic:
 <img width="920" height="617" alt="vlsi9" src="https://github.com/user-attachments/assets/e1a19dc6-e3ef-40f1-9558-167045f3e20d" />
 
