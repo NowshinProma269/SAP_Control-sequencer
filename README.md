@@ -93,16 +93,17 @@ Compiler Output:
 <img width="880" height="388" alt="vlsi14" src="https://github.com/user-attachments/assets/f499b5d8-9338-4d5d-8a16-b4a892358564" />
 
 Behavioral analysis consists of three main steps:
+Sure! Here’s a real, neatly formatted table you can copy directly into Word or other editors:
 
-
-Instruction  |  Opcode (4-bit)  |  Description                      
--------------+------------------+-----------------------------------
-LDA          |  0001            |  Load Accumulator from memory     
-LDB          |  0010            |  Load B register from memory      
-MUL          |  0011            |  Multiply Accumulator and B       
-ADD          |  0100            |  Add memory content to Accumulator
-STA          |  0101            |  Store Accumulator to memory      
-HLT          |  1111            |  Halt execution                   
+| **Instruction** | **Opcode (4-bit)** | **Description**                   |
+| --------------- | ------------------ | --------------------------------- |
+| LDA             | 0001               | Load Accumulator from memory      |
+| LDB             | 0010               | Load B register from memory       |
+| MUL             | 0011               | Multiply Accumulator and B        |
+| ADD             | 0100               | Add memory content to Accumulator |
+| STA             | 0101               | Store Accumulator to memory       |
+| HLT             | 1111               | Halt execution                    |
+            
 
 
 Input Compilation and ROM Code Generation: Assembly instructions are converted into 8-bit machine code by mapping each mnemonic to a 4-bit opcode and converting operands to 4-bit binary. These codes are concatenated and stored as hexadecimal values in ROM, ready for execution.
