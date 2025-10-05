@@ -84,8 +84,8 @@ Final Circuit:
 All components integrate into a modular processor architecture connected by a central bus. The datapath manages address and data flow with registers, multiplexers, and pipeline registers to optimize operation. While a fully automated control sequencer is under development, manual operation supports system validation. The design combines arithmetic execution, bootloading, and systematic control signals via a unified control bus with debug interfaces, providing a scalable foundation for further processor automation and enhancement.
 <img width="1041" height="762" alt="vlsi13" src="https://github.com/user-attachments/assets/eeda8f18-82a2-4368-bc15-aa1b3f8e5723" />
 
-Compiler:
-Output:
+Compiler Output:
+
 <img width="880" height="388" alt="vlsi14" src="https://github.com/user-attachments/assets/f499b5d8-9338-4d5d-8a16-b4a892358564" />
 
 Behavioral analysis consists of three main steps:
@@ -104,36 +104,37 @@ Video Tutorials:
 Limitations
  Despite the successful design and implementation of the Modified SAP architecture with auto
 matic control sequencing and enhanced arithmetic functionality, several limitations exist:
- • Limited Instruction Set: The instruction set implemented is minimal and focused on
+ 1. Limited Instruction Set: The instruction set implemented is minimal and focused on
  basic arithmetic and data movement operations; advanced instructions such as branching,
  interrupts, or input/output handling are not supported.
- • Restricted Memory Capacity: With only 16 memory locations (16×8 RAM), the archi
+ 2. Restricted Memory Capacity: With only 16 memory locations (16×8 RAM), the archi
 tecture supports only small programs, limiting its practical applications and scalability.
- • Multiplication Unit Constraints: The multiplication circuit is limited to 4-bit by 4-bit
+ 3. Multiplication Unit Constraints: The multiplication circuit is limited to 4-bit by 4-bit
  integer multiplication, lacking support for wider word sizes or more complex arithmetic
  operations.
- • Timing and Performance: The simple ripple-carry ALU design and sequential state
+ 4.Timing and Performance: The simple ripple-carry ALU design and sequential state
  counter limit processing speed and throughput relative to more advanced architectures.
 
  Future Improvements
  The current design and implementation of the Modified SAP provide a solid foundation, yet
  there are several avenues for enhancement to increase functionality, performance, and usability:
- • Expanded Instruction Set: Extend the instruction set architecture to include branches,
+ 1. Expanded Instruction Set: Extend the instruction set architecture to include branches,
  jumps, interrupts, and I/O instructions to support more complex and practical programs.
- • Memory Capacity Increase: Upgrade RAM size beyond 16 locations and implement
+ 2. Memory Capacity Increase: Upgrade RAM size beyond 16 locations and implement
  expanded addressing schemes to run larger programs and data sets.
- • Arithmetic Unit Enhancement: Improve the ALU by incorporating wider bit-width
+ 3. Arithmetic Unit Enhancement: Improve the ALU by incorporating wider bit-width
  operations, faster adder architectures (such as carry-lookahead), and support for floating
 point arithmetic.
- • AdvancedMultiplication: Extend the multiplier to support wider operands and consider
+ 4. AdvancedMultiplication: Extend the multiplier to support wider operands and consider
  implementing division and other advanced arithmetic operations.
- • Pipeline and Parallelism: Explore pipelining instruction execution and adding parallel
+ 5. Pipeline and Parallelism: Explore pipelining instruction execution and adding parallel
  data paths to improve throughput and system efficiency.
- • Integration of AI/ML Techniques: In the long term, consider integrating machine
+ 6. Integration of AI/ML Techniques: In the long term, consider integrating machine
  learning assisted control or optimization for instruction scheduling and power manage
 ment.
-• Robust Error Detection and Fault Tolerance: Implement error checking and correc
+7. Robust Error Detection and Fault Tolerance: Implement error checking and correc
 tion mechanisms to enhance reliability, especially for real-world deployment scenarios.
+ 
  Pursuing these improvements will substantially enhance the processor’s capabilities, usabil
 ity, and performance, paving the way for more sophisticated applications and research devel
 opment
