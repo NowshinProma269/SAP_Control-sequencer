@@ -85,8 +85,8 @@ All components integrate into a modular processor architecture connected by a ce
 <img width="1041" height="762" alt="vlsi13" src="https://github.com/user-attachments/assets/eeda8f18-82a2-4368-bc15-aa1b3f8e5723" />
 
 Compiler:
-import re
 
+import re
 OPCODE_MAP = {
     "LDA": "0001",
     "LDB": "0010",
@@ -97,11 +97,6 @@ OPCODE_MAP = {
 }
 
 def assemble_and_concatenate_output():
-    """
-    Processes assembly input, converts instructions to Hex, initializes RAM,
-    and prints the ROM and RAM sequences together on one line.
-    """
-
     print("=" * 80)
     print("      FINAL ASSEMBLER (CONCATENATED HEX OUTPUT)")
     print("=" * 80)
