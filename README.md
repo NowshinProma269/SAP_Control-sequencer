@@ -94,6 +94,17 @@ Compiler Output:
 
 Behavioral analysis consists of three main steps:
 
+
+Instruction  |  Opcode (4-bit)  |  Description                      
+-------------+------------------+-----------------------------------
+LDA          |  0001            |  Load Accumulator from memory     
+LDB          |  0010            |  Load B register from memory      
+MUL          |  0011            |  Multiply Accumulator and B       
+ADD          |  0100            |  Add memory content to Accumulator
+STA          |  0101            |  Store Accumulator to memory      
+HLT          |  1111            |  Halt execution                   
+
+
 Input Compilation and ROM Code Generation: Assembly instructions are converted into 8-bit machine code by mapping each mnemonic to a 4-bit opcode and converting operands to 4-bit binary. These codes are concatenated and stored as hexadecimal values in ROM, ready for execution.
 
 Bootloader Control and ROM-to-RAM Transfer: The bootloader FSM, implemented with JK flip-flops and combinational logic, automates system reset and program loading from ROM to RAM. It uses timing signals to control Memory Address Register loading, RAM writing, and execution enabling via precise control signals generated from a Control ROM/Table Memory.
