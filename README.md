@@ -36,7 +36,12 @@ Here are the key components of your Modified SAP Processor project:
 7. Accumulator: An 8-bit register storing intermediate results from arithmetic operations.  
 8. Adder-Subtractor with Multiplication: Performs addition, subtraction, and 4-bit by 4-bit multiplication operations.  
 9. B Register: Temporarily holds the second operand for ALU operations.  
-10. Output Register: Holds the final processed output for display.  
+10. Output Register: Holds the final processed output for display.
+
+Design Process:
+ General Purpose Register:
+<img width="1227" height="546" alt="vlsi1" src="https://github.com/user-attachments/assets/528dac01-a244-406a-a861-083a511f8f07" />
+
 11. Binary Display: An array of 8 LEDs displaying the output register’s content in binary form.
 
 These components work together to form a functional, automated microprocessor architecture.
