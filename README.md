@@ -101,7 +101,7 @@ Together, these phases ensure accurate compilation, automatic program loading, a
 Video Tutorials:
 
 
-Limitations
+Limitations:
  Despite the successful design and implementation of the Modified SAP architecture with auto
 matic control sequencing and enhanced arithmetic functionality, several limitations exist:
  1. Limited Instruction Set: The instruction set implemented is minimal and focused on
@@ -115,7 +115,7 @@ tecture supports only small programs, limiting its practical applications and sc
  4.Timing and Performance: The simple ripple-carry ALU design and sequential state
  counter limit processing speed and throughput relative to more advanced architectures.
 
- Future Improvements
+ Future Improvements:
  The current design and implementation of the Modified SAP provide a solid foundation, yet
  there are several avenues for enhancement to increase functionality, performance, and usability:
  1. Expanded Instruction Set: Extend the instruction set architecture to include branches,
